@@ -37,7 +37,6 @@ public class Game {
         }
         
         currentPlayer = new Player(username, 100);
-        
         Card starterCard = cardLibrary.getRandomCard();
         currentPlayer.addCard(starterCard);
         
@@ -48,5 +47,49 @@ public class Game {
         System.out.println("You have been given 100 credits");
         System.out.println("Your starter card is: " + starterCard);
         
+        runMainMenu();
+	}
+	
+	private void runMainMenu() {
+		boolean running = true;
+		
+		while (running) {
+			System.out.println();
+			System.out.println("=== Main Menu===");
+			System.out.println("1. View credits");
+			System.out.println("2. View owned cards");
+			System.out.println("3. View marketplace");
+			System.out.println("4. Buy a card");
+			System.out.println("5. Sell a card");
+			System.out.println("6. Exit");
+			System.out.print("Choose an option: ");
+			
+			String choice = scanner.nextLine();
+			
+			switch (choice) {
+			case "1":
+				System.out.println("Credits displayed added soon");
+				break;
+			case "2":
+				System.out.println("Owned card display will b added soon");
+				break;
+			case "3":
+				System.out.println("Marketplace view will be added soon ");
+				break;
+			case "4":
+				System.out.println(" Buy feature will be added soon");
+				break;
+			case "5":
+				System.out.println("Sell feature will be added soon");
+				break;
+			case "6":
+				System.out.println("Exiting Project Moodle.");
+				running = false;
+				break;
+			default:
+				System.out.println("Invalid option. Please choose a number from the list");
+			
+			}
+		}
 	}
 }
