@@ -68,10 +68,10 @@ public class Game {
 			
 			switch (choice) {
 			case "1":
-				System.out.println("Credits displayed added soon");
+				System.out.println("Your current credits: " + currentPlayer.getCredits());
 				break;
 			case "2":
-				System.out.println("Owned card display will b added soon");
+				currentPlayer.displayOwnedCards();
 				break;
 			case "3":
 				System.out.println("Marketplace view will be added soon ");
