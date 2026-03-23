@@ -1,13 +1,16 @@
 package projectmoodle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CardLibrary {
 
 	private ArrayList<Card> allCards;
+	private Random random;
 	
 	public CardLibrary() {
 		allCards = new ArrayList<>();
+		random = new Random();
 		initialiseCards();
 	}
 	
@@ -38,6 +41,18 @@ public class CardLibrary {
 	
 	public ArrayList<Card> getAllCards() {
 		return allCards;
+	}
+	
+	public Card getRandomCard() {
+		int randomIndex = random.nextInt(allCards.size());
+		Card chosenCard = allCards.get(randomIndex);
+		
+		return new Card(
+				chosenCard.getId(),
+				chosenCard.getName(),
+				chosenCard.getRarity(),
+				chosenCard.getPrice()
+		);
 	}
 	
 }
