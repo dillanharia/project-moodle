@@ -6,6 +6,7 @@ public class Game {
 	
 	private Scanner scanner;
 	private LoginService loginService;
+	private Marketplace marketplace;
 	private CardLibrary cardLibrary;
 	private Player currentPlayer;
 	
@@ -13,6 +14,7 @@ public class Game {
 		scanner = new Scanner(System.in);
 		loginService = new LoginService();;
 		cardLibrary = new CardLibrary();
+		marketplace = new Marketplace(cardLibrary);
 	}
 	
 	
@@ -74,7 +76,7 @@ public class Game {
 				currentPlayer.displayOwnedCards();
 				break;
 			case "3":
-				System.out.println("Marketplace view will be added soon ");
+				marketplace.displayAvailableCards();
 				break;
 			case "4":
 				System.out.println(" Buy feature will be added soon");
