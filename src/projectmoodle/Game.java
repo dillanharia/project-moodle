@@ -26,7 +26,7 @@ public class Game {
         
         System.out.print("Password: ");
         String password = scanner.nextLine();
-        scanner.close();
+        
         
         boolean loginSuccessful = loginService.authenticate(username,  password);
         

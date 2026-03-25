@@ -9,3 +9,5 @@ public class Main {
 	}
 
 }
+
+// IN TERMINAL, NAVIGATE TO eclipse-workspace then project-moodle and do git commands there
