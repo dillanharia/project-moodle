@@ -25,6 +25,25 @@ public class Marketplace {
 		
 	}
 	
+	public Card getCardById(int cardId) {
+		for (Card card : availableCards) {
+			if (card.getId() == cardId) {
+				return card;
+			}
+		}
+		return null;
+	}
+	
+	public boolean removeCardById(int cardId) {
+		for (int i = 0; i < availableCards.size(); i++) {
+			if (availableCards.get(i).getId() == cardId) {
+				availableCards.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void displayAvailableCards() {
 		if (availableCards.isEmpty()) {
 			System.out.println("The marketplace is currently empty.");

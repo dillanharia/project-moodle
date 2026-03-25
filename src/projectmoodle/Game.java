@@ -51,6 +51,45 @@ public class Game {
         
         runMainMenu();
 	}
+	private void buyCard() {
+	    if (marketplace.getAvailableCards().isEmpty()) {
+	        System.out.println("There are no cards available to buy.");
+	        return;
+	    }
+
+	    marketplace.displayAvailableCards();
+	    System.out.print("Enter the ID of the card you want to buy: ");
+	    String input = scanner.nextLine();
+
+	    int chosenId;
+
+	    try {
+	        chosenId = Integer.parseInt(input);
+	    } catch (NumberFormatException e) {
+	        System.out.println("Invalid input. Please enter a numeric card ID.");
+	        return;
+	    }
+
+	    Card selectedCard = marketplace.getCardById(chosenId);
+
+	    if (selectedCard == null) {
+	        System.out.println("That card is not in the marketplace.");
+	        return;
+	    }
+
+	    boolean purchaseSuccessful = currentPlayer.spendCredits(selectedCard.getPrice());
+
+	    if (!purchaseSuccessful) {
+	        System.out.println("You do not have enough credits to buy that card.");
+	        return;
+	    }
+
+	    currentPlayer.addCard(selectedCard);
+	    marketplace.removeCardById(chosenId);
+
+	    System.out.println("You bought: " + selectedCard.getName());
+	    System.out.println("Remaining credits: " + currentPlayer.getCredits());
+	}
 	
 	private void runMainMenu() {
 		boolean running = true;
@@ -79,7 +118,7 @@ public class Game {
 				marketplace.displayAvailableCards();
 				break;
 			case "4":
-				System.out.println(" Buy feature will be added soon");
+				buyCard();
 				break;
 			case "5":
 				System.out.println("Sell feature will be added soon");
